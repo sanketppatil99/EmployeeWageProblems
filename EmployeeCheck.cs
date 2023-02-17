@@ -11,6 +11,7 @@ namespace EmployeeWage
         public void EmployeeAttendance()
         {
             int Is_Full_time = 1;
+            int Is_Part_Time = 2;
 
             int Emp_Rate_per_hour = 20;
             //Variables
@@ -23,6 +24,11 @@ namespace EmployeeWage
             {
                 Console.WriteLine("Employee is Full Time");
                 empHrs = 8;
+            }
+            else if (empCheck == Is_Part_Time)
+            {
+                Console.WriteLine("Employee is Part Time");
+                empHrs = 4;
             }
             else
             {
