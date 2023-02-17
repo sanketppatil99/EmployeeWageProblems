@@ -8,6 +8,7 @@ namespace EmployeeWage
 {
     public class EmployeeCheck
     {
+
         public void EmployeeAttendance()
         {
             const int Is_Full_time = 1;
