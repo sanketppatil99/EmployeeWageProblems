@@ -14,31 +14,36 @@ namespace EmployeeWage
             const int Is_Part_time = 2;
             const int Emp_Rate_per_hour = 20;
             //Variables
+            int Num_Of_Working_days = 20;
+            int totalHrs = 0;
             int empHrs = 0;
             int empWage = 0;
-            Random rand = new Random();
-            int empCheck = rand.Next(3);
-
-            //Computation
-            switch (empCheck)
+            for (int i = 0; i < Num_Of_Working_days; i++)
             {
-                case Is_Full_time:
-                    Console.WriteLine("Employee is Full Time");
-                    empHrs = 8;
-                    break;
+                Random rand = new Random();
+                int empCheck = rand.Next(3);
 
-                case Is_Part_time:
-                    Console.WriteLine("Employee is Part Time");
-                    empHrs = 4;
-                    break;
+                //Computation
+                switch (empCheck)
+                {
+                    case Is_Full_time:
+                        empHrs = 8;
+                        break;
 
-                default:
-                    Console.WriteLine("Employee is not Worked");
-                    empHrs = 0;
-                    break;
+                    case Is_Part_time:
+                        empHrs = 4;
+                        break;
+
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                totalHrs += empHrs;
             }
-            empWage = Emp_Rate_per_hour * empHrs;
+            Console.WriteLine("total working hours: {0}", totalHrs);
+            empWage = Emp_Rate_per_hour * totalHrs;
             Console.WriteLine("total employee wage is: " + empWage);
+
 
 
         }
