@@ -13,17 +13,20 @@ namespace EmployeeWage
             const int Is_Full_time = 1;
             const int Is_Part_time = 2;
             const int Emp_Rate_per_hour = 20;
-            //Variables
-            int Num_Of_Working_days = 20;
+            const int Num_Of_Working_days = 20;
+            const int toatal_Wroking_Hrs = 100;
+
+            int totalWorkingDays = 0;
             int totalHrs = 0;
             int empHrs = 0;
             int empWage = 0;
-            for (int i = 0; i < Num_Of_Working_days; i++)
+            while (totalHrs < toatal_Wroking_Hrs && totalWorkingDays < Num_Of_Working_days)
             {
+                totalWorkingDays++;
                 Random rand = new Random();
                 int empCheck = rand.Next(3);
 
-                //Computation
+
                 switch (empCheck)
                 {
                     case Is_Full_time:
@@ -40,7 +43,7 @@ namespace EmployeeWage
                 }
                 totalHrs += empHrs;
             }
-            Console.WriteLine("total working hours: {0}", totalHrs);
+            Console.WriteLine("total working hours: {0}, total worked days: {1}", totalHrs, totalWorkingDays);
             empWage = Emp_Rate_per_hour * totalHrs;
             Console.WriteLine("total employee wage is: " + empWage);
 
