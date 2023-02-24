@@ -5,10 +5,15 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation");
-            EmployeeCheck employeeCheck = new EmployeeCheck();
-            employeeCheck.ComputeEmpWage("TCS", 25, 10, 20);
-            employeeCheck.ComputeEmpWage("Capgemini", 25, 20, 30);
-            employeeCheck.ComputeEmpWage("Wipro", 35, 30, 45);
+            WageComputation samsung = new WageComputation("Samsung", 20, 5, 10);
+            WageComputation reliance = new WageComputation("Reliance", 10, 4, 15);
+            WageComputation airtel = new WageComputation("Airtel", 30, 5, 20);
+            samsung.ComputeEmployeeWage();
+            Console.WriteLine(samsung.displaySalary() + "\n");
+            reliance.ComputeEmployeeWage();
+            Console.WriteLine(reliance.displaySalary() + "\n");
+            airtel.ComputeEmployeeWage();
+            Console.WriteLine(airtel.displaySalary() + "\n");
         }
     }
 }
