@@ -8,15 +8,17 @@
             public const int IS_FULL_TIME = 1;
             public const int IS_PART_TIME = 2;
             List<CompanyEmpWage> list;
+            Dictionary<string, CompanyEmpWage> keyValues;
             public EmpWageBuilder()
             {
-                
                 list = new List<CompanyEmpWage>();
+                keyValues = new Dictionary<string, CompanyEmpWage>();
             }
             public void AddCompanyCompanyEmpWage(string company, int maxWorkingDays, int maxWorkingHrs, int empPerHrs)
             {
                 CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, maxWorkingDays, maxWorkingHrs, empPerHrs);
                 list.Add(companyEmpWage);
+                keyValues.Add(company, companyEmpWage);
             }
             public void IterateOverCompanies()
             {
@@ -25,6 +27,12 @@
                     int totalWage = ComputeEmpWage(list[i]);
                     list[i].SetTotalEmpWage(totalWage);
                     Console.WriteLine(list[i]);
+                }
+                foreach (KeyValuePair<string, CompanyEmpWage> data in keyValues)
+                {
+                    Console.WriteLine("Company Name: " + data.Key + "\n---------------");
+                    Console.WriteLine("Company details:\n--------------\n" + data.Value + "\n");
+
                 }
             }
             public int ComputeEmpWage(CompanyEmpWage details)
@@ -35,7 +43,7 @@
                 Random random = new Random();
                 while (day <= details.maxWorkingDays && totalEmpHrs <= details.maxWorkingHrs)
                 {
-                    int empAttendence = random.Next(0, 3);
+                    int empAttendence = random.Next(0, 3);//0,1,2
                     switch (empAttendence)
                     {
                         case IS_FULL_TIME:
